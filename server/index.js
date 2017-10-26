@@ -39,7 +39,7 @@ passport.use(new Auth0Strategy({
   //if nothing is on profile you must check auth0, clients, advanced settings, turn off OIDC compliance
 
   const db = app.get('db');
-  console.log(profile, 'profile')
+  // console.log(profile, 'profile')
   db.find_user([profile.identities[0].user_id])
     .then(user => {
       if (user[0]) {
