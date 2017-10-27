@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import './Private.css'
-import axios from 'axios';
-import { connect } from 'react-redux';
-import { getUserInfo } from './../../ducks/user';
+// import './Private.css'
+// import axios from 'axios';
+// import { connect } from 'react-redux';
+// import { getUserInfo } from './../../ducks/user';
 
 class Private extends Component {
     
