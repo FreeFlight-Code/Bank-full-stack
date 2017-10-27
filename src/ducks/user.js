@@ -20,7 +20,7 @@ export function getUserInfo() {
 }
 
 // reducer function
-export default function reducer(state = initialState, action) {
+export default function UserReducer(state = initialState, action) {
     switch (action.type) {
         case GET_USER_INFO + '_FULFILLED':
             return Object.assign({}, state, { user: action.payload });
