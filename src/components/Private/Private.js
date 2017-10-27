@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-// import './Private.css'
+import './Private.css'
 // import axios from 'axios';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 // import { getUserInfo } from './../../ducks/user';
 
 class Private extends Component {
     
     componentDidMount() {
-        this.props.getUserInfo();
+        // this.props.getUserInfo();
+        console.log(this.props,'props')
     }
 
     render() {
@@ -28,8 +29,8 @@ class Private extends Component {
 
 function mapStateToProps(state) {
     return {
-        user: state.user
+         state: state
     }
 }
 
-export default connect( mapStateToProps, { getUserInfo })(Private);
+export default connect( mapStateToProps)(Private);
