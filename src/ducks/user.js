@@ -7,7 +7,7 @@ export const userReducer = (state = {}, action) => {
             break;
         }
         case 'CHANGE_NAME': {
-            state = { ...state, name: action.payload }
+            state = { ...state, user_name: action.payload }
             break;
         }
         case 'CHANGE_AGE': {
@@ -19,7 +19,7 @@ export const userReducer = (state = {}, action) => {
 };
 
 export function getUserInfo() {
-    const userInfo = axios.get('/auth/me').then( res => {
+    const userInfo = axios.get('http://localhost:3005/auth/me').then( res => {
         return res.data
     })
     return {
