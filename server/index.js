@@ -78,6 +78,7 @@ passport.deserializeUser(function (obj, done) { // whatever you pass through sec
 });
 
 app.get('/auth/me', (req, res, next) => {
+  console.log(res)
   if (!req.user) {
     return res.status(404).send('User not found');
   } else {
