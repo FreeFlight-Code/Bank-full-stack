@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './Private.css';
 // import axios from 'axios';
 import { connect } from 'react-redux';
-import { getUserInfo } from './../../ducks/user';
 import { store } from '../../store';
 
 
@@ -21,23 +20,15 @@ store.dispatch({ type: 'DEPOSIT', payload: 1000 })
 class Private extends Component {
 constructor(props) {
     super(props);
-    this.getInfo=this.getInfo.bind(this);
+
     this.accountWithdrawal=this.accountWithdrawal.bind(this);
     this.accountDeposit=this.accountDeposit.bind(this);
 }
 
     componentWillMount() {
-        this.setState({user:getUserInfo()})
+        // this.setState({user:getUserInfo()})
     }
-    
 
-    
-    getInfo (){
-        let temp = store.dispatch(getUserInfo())
-        this.setState({
-            user: temp
-        })
-    }
     accountWithdrawal (){
     store.dispatch({type: 'WITHDRAWAL', payload: 20})
     }
@@ -70,4 +61,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect( mapStateToProps, getUserInfo())(Private);
+export default connect( mapStateToProps)(Private);

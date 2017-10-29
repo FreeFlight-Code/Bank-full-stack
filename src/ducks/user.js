@@ -1,7 +1,10 @@
-import axios from 'axios';
+// import axios from 'axios';
 
 export const userReducer = (state = {}, action) => {
     switch (action.type) {
+        default:
+            console.log('unknown input to userReducer')
+            break;
         case 'GET_USER_INFO': {
             state = { ...state, profile: action.payload }
             break;
@@ -18,15 +21,15 @@ export const userReducer = (state = {}, action) => {
     return state;
 };
 
-export function getUserInfo() {
-    const userInfo = axios.get('http://localhost:3005/auth/me').then( res => {
-        return res.data
-    })
-    return {
-        type: 'GET_USER_INFO',
-        payload: userInfo
-    }
-}
+// export function getUserInfo() {
+//     const userInfo = axios.get('http://localhost:3005/auth/me').then( res => {
+//         return res.data
+//     })
+//     return {
+//         type: 'GET_USER_INFO',
+//         payload: userInfo
+//     }
+// }
 
 
 

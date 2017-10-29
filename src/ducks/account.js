@@ -1,11 +1,14 @@
-export const accountReducer = (state =0, action) => {
+export const accountReducer = (state = 0, action) => {
     switch (action.type) {
+        default:
+            console.log('unknown input to accountReducer')
+            break;
         case 'WITHDRAWAL': {
-            state-=action.payload
+            state -= action.payload
             break;
         }
         case 'DEPOSIT': {
-            state+=action.payload
+            state += action.payload
             break;
         }
     }
