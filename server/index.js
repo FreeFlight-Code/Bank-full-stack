@@ -65,12 +65,13 @@ app.get('/auth/callback', passport.authenticate('auth0', { // second time they a
   successRedirect: 'http://localhost:3000/#/private',
   failureRedirect: 'http://localhost:3000/#/'
 }))
-
-passport.serializeUser(function (user, done) {  // puts stuff on session
+// puts stuff on session
+passport.serializeUser(function (user, done) {  
   done(null, user);
 });
-
-passport.deserializeUser(function (obj, done) { // whatever you pass through second argument on deserialize gets put on req-user
+// whatever you pass through second argument on deserialize gets put on req-user
+passport.deserializeUser(function (obj, done) { 
+  console.log(obj,'obj')
   app.get('db').find_session_user([obj.id])
     .then(user => {
       return done(null, user[0]);
@@ -78,7 +79,8 @@ passport.deserializeUser(function (obj, done) { // whatever you pass through sec
 });
 
 app.get('/auth/me', (req, res, next) => {
-  console.log(res)
+  console.log(req.user,'req.user')
+  // console.log(req,'req')
   if (!req.user) {
     return res.status(404).send('User not found');
   } else {
